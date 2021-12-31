@@ -93,7 +93,7 @@ using std::sort;
 //----------------------------------------------------------------------
 
 DEFINE_int64(heap_profile_allocation_interval,
-             EnvToInt64("HEAP_PROFILE_ALLOCATION_INTERVAL", 1 << 30 /*1GB*/),
+             EnvToInt64("HEAP_PROFILE_ALLOCATION_INTERVAL", 0 /*1GB*/),
              "If non-zero, dump heap profiling information once every "
              "specified number of bytes allocated by the program since "
              "the last dump.");
@@ -105,7 +105,7 @@ DEFINE_int64(heap_profile_deallocation_interval,
 // We could also add flags that report whenever inuse_bytes changes by
 // X or -X, but there hasn't been a need for that yet, so we haven't.
 DEFINE_int64(heap_profile_inuse_interval,
-             EnvToInt64("HEAP_PROFILE_INUSE_INTERVAL", 100 << 20 /*100MB*/),
+             EnvToInt64("HEAP_PROFILE_INUSE_INTERVAL", 1 << 30 /*1000MB*/),
              "If non-zero, dump heap profiling information whenever "
              "the high-water memory usage mark increases by the specified "
              "number of bytes.");
